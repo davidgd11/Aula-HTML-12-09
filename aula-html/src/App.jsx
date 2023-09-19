@@ -24,6 +24,28 @@ function App() {
             <a href="">Veja mais</a>
           </article>
         </section>
+
+
+        <section className="estrutura-card">
+            <h1 className='text-shadow'>Criando Mixins </h1>
+
+            <div>
+            <article>
+              <p>Lorem</p>
+            </article>
+
+            <article>
+              <p>Lorem</p>
+            </article>
+
+            <article>
+              <p>Lorem</p>
+            </article>
+            </div>
+
+        </section>
+
+
       </div>
     </>
   )

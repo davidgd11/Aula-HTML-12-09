@@ -1,11 +1,29 @@
-//variavel
-$font-principal: Arial, Helvetica, sans-serif;
-$cor-fundo: rgb(87, 87, 87);
-$cor-branco: #fff;
-$cor-link: blue;
+
 
 @import "./variavel.scss";
 
+// criando mixins
+@mixin tituloPadrao{
+    font-size: 22px;
+    font-weight: bold;
+    font-family: monospace;
+    color: #1c2255;
+}
+
+@mixin circulo($tamanho){
+    width: $tamanho;
+    height: $tamanho;
+    border-radius: $tamanho / 2;
+    overflow: hidden;
+}
+
+.text-shadow{
+    text-shadow: 2px 2px 2px #525252;
+}
+
+.border-shadow{
+    box-shadow: 2px 2px 5px #999;
+}
 
 *{
     margin: 0;
@@ -17,7 +35,7 @@ body{
 }
 
 .container{
-    margin: 20px;
+    margin: 30px;
     background: $cor-fundo;
     max-width: 950px;
     padding: 20px;
@@ -26,6 +44,10 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @media (max-width:560px) {
+            flex-wrap:wrap;
+        }
 
         .box{
            max-width: 400px;
@@ -48,14 +70,15 @@ body{
            }
            
            a{
-            color: $cor-link;
+            color: rgb(5, 7, 31) ;
             padding: 10px;
             text-decoration: none;
-            transition: all ease-in-out 1s;
+            transition: all ease-in-out .4s;
             max-width: 400px;
             background-color: rgb(168, 168, 168);
             margin: 5px;
             border-radius: 5px;
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,10 +87,46 @@ body{
                 color: rgb(5, 7, 31) ;
                 background-color: transparent;
                 border: 1px solid rgb(168, 168, 168);
-                rotate: 360deg;
+              
             }
            }
            
+        }
+    }
+
+    .estrutura-card{
+        h1{
+            @include tituloPadrao();
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+
+            @extend .text-shadow;
+        }
+
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media (max-width:560px) {
+                flex-wrap:wrap;
+            }
+            article{
+                @include circulo(150px);
+    
+                background-color: #1c2255;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 15px;
+                margin-right: 15px;
+                font-weight: 700;
+
+                @extend .border-shadow;
+            }
         }
     }
 }
